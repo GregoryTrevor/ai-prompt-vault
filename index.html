@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Vault | Gregory Trevor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Prompt Vault 1.0</h1>
+            <p>Gregory Trevor's professional collection for cinematic generation.</p>
+        </header>
+
+        <div class="card" style="border-color: #38bdf8;">
+            <h3 style="margin-top:0;">Add New Prompt to Vault</h3>
+            <input type="text" id="tagInput" placeholder="Category (e.g. Cinematic, COD Mobile, UI Design)">
+            <textarea id="promptInput" placeholder="Paste your hyper-realistic prompt string here..." rows="3"></textarea>
+            <button onclick="savePrompt()">Save to Local Storage</button>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #30363d; margin: 40px 0;">
+
+        <h2 style="color: #38bdf8;">Your Saved Prompts</h2>
+        <div id="promptGrid" class="grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
