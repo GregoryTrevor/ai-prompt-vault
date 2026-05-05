@@ -3,23 +3,22 @@ window.onload = function() {
 };
 
 function savePrompt() {
-    const tagInput = document.getElementById('tagInput');
-    const promptInput = document.getElementById('promptInput');
+    const categoryInput = document.getElementById('tagInput');
+    const textInput = document.getElementById('promptInput');
 
-    if (!tagInput.value || !promptInput.value) {
-        alert("Please fill in both fields!");
-        return;
+    if (categoryInput.value && textInput.value) {
+        const prompts = JSON.parse(localStorage.getItem('prompts')) || [];
+        prompts.push({
+            category: categoryInput.value,
+            text: textInput.value
+        });
+        localStorage.setItem('prompts', JSON.stringify(prompts));
+        
+        // Clear inputs and refresh the list
+        categoryInput.value = '';
+        textInput.value = '';
+        displayPrompts();
     }
-
-    const newEntry = { tag: tagInput.value, prompt: promptInput.value };
-    let vault = JSON.parse(localStorage.getItem('gregoryVault')) || [];
-    
-    vault.push(newEntry);
-    localStorage.setItem('gregoryVault', JSON.stringify(vault));
-
-    tagInput.value = '';
-    promptInput.value = '';
-    displayPrompts();
 }
 
 function displayPrompts() {
