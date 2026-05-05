@@ -23,18 +23,27 @@ function savePrompt() {
 }
 
 function displayPrompts() {
-    const grid = document.getElementById('promptGrid');
-    grid.innerHTML = ''; 
-    
-    const vault = JSON.parse(localStorage.getItem('gregoryVault')) || [];
+    const promptGrid = document.getElementById('promptGrid');
+    const prompts = JSON.parse(localStorage.getItem('prompts')) || [];
+    promptGrid.innerHTML = '';
 
-    vault.forEach(item => {
+    prompts.forEach((p, index) => {
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-            <span class="tag">${item.tag}</span>
-            <code>${item.prompt}</code>
+            <span class="category-tag">${p.category}</span>
+            <p id="promptText-${index}">${p.text}</p>
+            <button class="copy-btn" onclick="copyPrompt(${index})">Copy Prompt</button>
         `;
-        grid.appendChild(card);
+        promptGrid.appendChild(card);
+    });
+}
+
+function copyPrompt(index) {
+    const text = document.getElementById(`promptText-${index}`).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelectorAll('.copy-btn')[index];
+        btn.innerText = '✅ Copied!';
+        setTimeout(() => btn.innerText = 'Copy Prompt', 2000);
     });
 }
