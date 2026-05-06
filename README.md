@@ -17,3 +17,9 @@ A high-fidelity technical library for managing complex AI generation strings. De
 - HTML5 / CSS3 (Custom Dark Mode UI)
 - JavaScript (Vanilla)
 - Browser LocalStorage API
+
+## 🗺️ Roadmap & Planned Features (v3.0)
+- **Cloud Synchronization**: Migrating from LocalStorage to a Firebase/Supabase backend to allow real-time prompt syncing across PC and Mobile devices.
+- **Image Preview**: Integration to save a sample generated image alongside the prompt for visual reference.
+- **Search & Filter**: A search bar to quickly find assets by category (e.g., searching "Restoration" or "Cinematic").
+- **Dark/Light Mode Toggle**: For flexible use in different lighting environments.
